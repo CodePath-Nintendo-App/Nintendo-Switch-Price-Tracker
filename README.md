@@ -1,4 +1,3 @@
-# Playstation-App
 Original App Design Project - README Template
 ===
 
