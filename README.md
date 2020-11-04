@@ -1,5 +1,5 @@
 
-# Top Playstation 4 Games This Month (Title WIP)
+# Top 50 Playstation 4 Games This Month (Title WIP)
 
 ## Table of Contents
 1. [Overview](#Overview)
