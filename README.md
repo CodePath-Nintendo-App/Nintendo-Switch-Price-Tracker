@@ -1,5 +1,3 @@
-Original App Design Project - README Template
-===
 
 # Top Playstation 4 Games This Month (Title WIP)
 
