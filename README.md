@@ -9,7 +9,7 @@
 
 ## Overview
 ### Description
-This PlayStation 4 App tracks users play time on top games played during the current month. This app also tracks the price of a game you are currently looking to buy by matching you to retail stores with the best deals.
+Stay up to date to your favorite PlayStation 4 game wherever you go! This PLayStation app tracks the top most 50 played Playstation 4 games during the current month. While maintaning a track record, this app will give users the opportunity to learn, rate, watch live streams and be notified when a game on their favorites list goes on sale at certain retail locations. 
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
