@@ -73,7 +73,7 @@ Stay up to date to your favorite Nintendo game wherever you go! This Nintendo ap
 ## Wireframes
 Digital Wireframe
 
-<img src="https://i.imgur.com/d0wHcxn.jpg" width=600>
+<img src="https://imgur.com/a/XcY1BxQ" width=600>
 
 
 ## Schema 
