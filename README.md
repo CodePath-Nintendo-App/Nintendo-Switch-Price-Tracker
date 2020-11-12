@@ -97,8 +97,9 @@ Property	Type	Description
 |post | password|	
 		
 **Registration**
-|---|---|
+
 |post|username	|
+|---|---|
 |post|	password|	
 |post| 	email	|
 ### Networking
