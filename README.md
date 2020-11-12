@@ -87,7 +87,17 @@ Property	Type	Description
 |email|	string|	user's email|
 |favorites|	array|	list of favorite games, games you will be watching for price drop|
 ### Models
-[Add table of models]
+
+
+|login screen|---|
+|----------- |
+|POST|username|	
+|post | password|	
+		
+registration		
+post	username	
+post	password	
+post 	email	
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
