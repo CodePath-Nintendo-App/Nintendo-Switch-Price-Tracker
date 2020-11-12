@@ -108,20 +108,11 @@ Property	Type	Description
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
 
+		
+**https://youtube.googleapis.com/youtube/v3/**
 
-		
-|List of network requests by screen		|
-login screen		
-POST	username	
-post	password	
-		
-registration		
-post	username	
-post	password	
-post 	email	
-		
-https://youtube.googleapis.com/youtube/v3/		
-Http verb	end Point	Description
+|Http verb|	end Point|	Description|
+|--|--|--|
 get 	/youtube.channels.list/	gets list of videos from the from a channels playlist
 get	/youtube.playlist.list/	Retrieve the playlist ID for the channel's uploaded videos
 get	/youtube.videos.rate/	get videos likes and dislikes
