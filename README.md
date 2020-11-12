@@ -84,3 +84,36 @@ Digital Wireframe
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+
+Property	Type	Description
+		
+|User Name|string| username for login,used to identy user|
+|password|string|	user's password for login|
+|email|	string|	user's email|
+|favorites|	array|	list of favorite games, games you will be watching for price drop|
+		
+List of network requests by screen		
+login screen		
+POST	username	
+post	password	
+		
+registration		
+post	username	
+post	password	
+post 	email	
+		
+https://youtube.googleapis.com/youtube/v3/		
+Http verb	end Point	Description
+get 	/youtube.channels.list/	gets list of videos from the from a channels playlist
+get	/youtube.playlist.list/	Retrieve the playlist ID for the channel's uploaded videos
+get	/youtube.videos.rate/	get videos likes and dislikes
+		
+https://api.isthereanydeal.com/v01		
+Http Verb	End Point	Description
+get	/search/	search game
+get	"	user/wait/all/																								"	Get list of games that the user has in Waitlist.
+get	/deals/list/	provides list of deals
+get	/stats/waitlist/price/	Get statistical info about Waitlist notification price limits for specific game, including:
+get 	game/plain/	Identification by title tries to match provided title against our database. Should provide reasonable results
+get	/game/prices/	Get all current prices for one or more selected games. Use region and country to get more accurate results.
