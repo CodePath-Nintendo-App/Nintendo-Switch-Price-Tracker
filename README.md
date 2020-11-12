@@ -103,9 +103,9 @@ Property	Type	Description
 |post|	password|	
 |post| 	email	|
 
-- [Add list of network requests by screen ]
+<!--- - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+- [OPTIONAL: List endpoints if using existing API such as Yelp] --->
 
 
 		
