@@ -90,8 +90,10 @@ Property	Type	Description
 
 
 login screen
-|----------- |------|
+
+
 |POST|username|	
+|----------- |------|
 |post | password|	
 		
 registration		
