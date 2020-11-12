@@ -89,7 +89,7 @@ Property	Type	Description
 ### Models
 
 
-|login screen|---|
+|login screen|
 |----------- |
 |POST|username|	
 |post | password|	
