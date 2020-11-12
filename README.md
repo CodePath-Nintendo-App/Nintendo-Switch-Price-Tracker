@@ -78,6 +78,13 @@ Digital Wireframe
 
 ## Schema 
 [This section will be completed in Unit 9]
+
+Property	Type	Description
+		
+|User Name|string| username for login,used to identy user|
+|password|string|	user's password for login|
+|email|	string|	user's email|
+|favorites|	array|	list of favorite games, games you will be watching for price drop|
 ### Models
 [Add table of models]
 ### Networking
@@ -86,12 +93,7 @@ Digital Wireframe
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
 
-Property	Type	Description
-		
-|User Name|string| username for login,used to identy user|
-|password|string|	user's password for login|
-|email|	string|	user's email|
-|favorites|	array|	list of favorite games, games you will be watching for price drop|
+
 		
 |List of network requests by screen		|
 login screen		
