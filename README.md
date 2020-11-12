@@ -113,15 +113,17 @@ Property	Type	Description
 
 |Http verb|	end Point|	Description|
 |--|--|--|
-get 	/youtube.channels.list/	gets list of videos from the from a channels playlist
-get	/youtube.playlist.list/	Retrieve the playlist ID for the channel's uploaded videos
-get	/youtube.videos.rate/	get videos likes and dislikes
+get| 	/youtube.channels.list/|	gets list of videos from the from a channels playlist|
+get|	/youtube.playlist.list/	|Retrieve the playlist ID for the channel's uploaded videos|
+get|	/youtube.videos.rate/	|get videos likes and dislikes|
 		
-https://api.isthereanydeal.com/v01		
-Http Verb	End Point	Description
-get	/search/	search game
-get	"	user/wait/all/																								"	Get list of games that the user has in Waitlist.
-get	/deals/list/	provides list of deals
-get	/stats/waitlist/price/	Get statistical info about Waitlist notification price limits for specific game, including:
-get 	game/plain/	Identification by title tries to match provided title against our database. Should provide reasonable results
-get	/game/prices/	Get all current prices for one or more selected games. Use region and country to get more accurate results.
+**https://api.isthereanydeal.com/v01**
+
+|Http Verb|	End Point	|Description|
+|--|--|--|
+|get|	/search/	|search game|
+|get|	|user/wait/all/|	|Get list of games that the user has in Waitlist.|
+|get|	/deals/list/	|provides list of deals|
+|get|	/stats/waitlist/price/|	Get statistical info about Waitlist notification price limits for specific game|
+|get |	game/plain/	|Identification by title tries to match provided title against our database. Should provide reasonable results|
+|get|	/game/prices/	|Get all current prices for one or more selected games. Use region and country to get more accurate results|
