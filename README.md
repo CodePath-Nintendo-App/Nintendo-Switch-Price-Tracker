@@ -96,7 +96,8 @@ Property	Type	Description
 |----------- |------|
 |post | password|	
 		
-**Registration**	
+**Registration**
+|---|---|
 |post|username	|
 |post|	password|	
 |post| 	email	|
