@@ -77,8 +77,8 @@ Digital Wireframe
 
 
 ## Schema 
-[This section will be completed in Unit 9]
 
+### Models
 Property	Type	Description
 		
 |User Name|string| username for login,used to identy user|
@@ -86,8 +86,8 @@ Property	Type	Description
 |password|string|	user's password for login|
 |email|	string|	user's email|
 |favorites|	array|	list of favorite games, games you will be watching for price drop|
-### Models
 
+### Networking
 
 **login screen**
 
@@ -102,7 +102,7 @@ Property	Type	Description
 |---|---|
 |post|	password|	
 |post| 	email	|
-### Networking
+
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
@@ -122,7 +122,7 @@ get|	/youtube.videos.rate/	|get videos likes and dislikes|
 |Http Verb|	End Point	|Description|
 |--|--|--|
 |get|	/search/	|search game|
-|get|	|user/wait/all/|	|Get list of games that the user has in Waitlist.|
+|get|	|user/wait/all/|Get list of games that the user has in Waitlist.|
 |get|	/deals/list/	|provides list of deals|
 |get|	/stats/waitlist/price/|	Get statistical info about Waitlist notification price limits for specific game|
 |get |	game/plain/	|Identification by title tries to match provided title against our database. Should provide reasonable results|
