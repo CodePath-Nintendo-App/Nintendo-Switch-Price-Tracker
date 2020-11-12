@@ -82,6 +82,7 @@ Digital Wireframe
 Property	Type	Description
 		
 |User Name|string| username for login,used to identy user|
+| ------- | ---- | ------------------------------------- |
 |password|string|	user's password for login|
 |email|	string|	user's email|
 |favorites|	array|	list of favorite games, games you will be watching for price drop|
