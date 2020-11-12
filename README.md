@@ -89,17 +89,17 @@ Property	Type	Description
 ### Models
 
 
-login screen
+**login screen**
 
 
 |POST|username|	
 |----------- |------|
 |post | password|	
 		
-registration		
-post	username	
-post	password	
-post 	email	
+**Registration**	
+|post|username	|
+|post|	password|	
+|post| 	email	|
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
