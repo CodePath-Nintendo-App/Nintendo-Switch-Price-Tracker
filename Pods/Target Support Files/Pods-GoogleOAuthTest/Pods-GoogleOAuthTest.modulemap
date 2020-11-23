@@ -1,0 +1,6 @@
+framework module Pods_GoogleOAuthTest {
+  umbrella header "Pods-GoogleOAuthTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
