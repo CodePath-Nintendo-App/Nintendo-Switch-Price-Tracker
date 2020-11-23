@@ -18,7 +18,6 @@
 		00FF8A2725670969000CC9F6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF8A2625670969000CC9F6 /* LoginViewController.swift */; };
 		00FF8A2C256709FD000CC9F6 /* LandingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF8A2B256709FD000CC9F6 /* LandingScreenViewController.swift */; };
 		00FF8A312567159D000CC9F6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF8A302567159D000CC9F6 /* SignUpViewController.swift */; };
-		00FF8A3E256716C1000CC9F6 /* MainPageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF8A3D256716C1000CC9F6 /* MainPageTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +55,6 @@
 		00FF8A2625670969000CC9F6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		00FF8A2B256709FD000CC9F6 /* LandingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScreenViewController.swift; sourceTree = "<group>"; };
 		00FF8A302567159D000CC9F6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		00FF8A3D256716C1000CC9F6 /* MainPageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +115,6 @@
 				00FF8A2625670969000CC9F6 /* LoginViewController.swift */,
 				00FF8A2B256709FD000CC9F6 /* LandingScreenViewController.swift */,
 				00FF8A302567159D000CC9F6 /* SignUpViewController.swift */,
-				00FF8A3D256716C1000CC9F6 /* MainPageTableViewController.swift */,
 			);
 			path = NintendoPriceTracker;
 			sourceTree = "<group>";
@@ -274,7 +271,6 @@
 				00FF8A2725670969000CC9F6 /* LoginViewController.swift in Sources */,
 				00B2235C255DCC0A00C563E8 /* ViewController.swift in Sources */,
 				00FF8A2C256709FD000CC9F6 /* LandingScreenViewController.swift in Sources */,
-				00FF8A3E256716C1000CC9F6 /* MainPageTableViewController.swift in Sources */,
 				00B22358255DCC0A00C563E8 /* AppDelegate.swift in Sources */,
 				00B2235A255DCC0A00C563E8 /* SceneDelegate.swift in Sources */,
 			);
