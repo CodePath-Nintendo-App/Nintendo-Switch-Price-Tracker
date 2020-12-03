@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,10 @@
 		00FF8A2725670969000CC9F6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF8A2625670969000CC9F6 /* LoginViewController.swift */; };
 		00FF8A2C256709FD000CC9F6 /* LandingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF8A2B256709FD000CC9F6 /* LandingScreenViewController.swift */; };
 		00FF8A312567159D000CC9F6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF8A302567159D000CC9F6 /* SignUpViewController.swift */; };
+		52B0D6C858A74651F1156162 /* Pods_NintendoPriceTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9924F39919F406543D22EA /* Pods_NintendoPriceTrackerTests.framework */; };
+		817D350C2578A5FB000105D2 /* MainScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817D350B2578A5FB000105D2 /* MainScreenTableViewController.swift */; };
+		82526BF269889A61844F3027 /* Pods_NintendoPriceTracker_NintendoPriceTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23EEBE96539E633723BCE8C /* Pods_NintendoPriceTracker_NintendoPriceTrackerUITests.framework */; };
+		A0D53826946FF0E73A672872 /* Pods_NintendoPriceTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF54CE6C59588D3436553A9 /* Pods_NintendoPriceTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,16 @@
 		00FF8A2625670969000CC9F6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		00FF8A2B256709FD000CC9F6 /* LandingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScreenViewController.swift; sourceTree = "<group>"; };
 		00FF8A302567159D000CC9F6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3F5A8143F05E49F462F5738F /* Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4DF9E1990834737A59A46ACB /* Pods-NintendoPriceTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTrackerTests/Pods-NintendoPriceTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5ABFF9ED9FB9E2B5838E881C /* Pods-NintendoPriceTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTracker.debug.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		5D063A9BC35D3FAEAC08D06D /* Pods-NintendoPriceTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTrackerTests/Pods-NintendoPriceTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		7CF54CE6C59588D3436553A9 /* Pods_NintendoPriceTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NintendoPriceTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		817D350B2578A5FB000105D2 /* MainScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewController.swift; sourceTree = "<group>"; };
+		919A00FA33BB56E9CB4F7757 /* Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B8DDF862BC33770AFB5A18FA /* Pods-NintendoPriceTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTracker.release.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker.release.xcconfig"; sourceTree = "<group>"; };
+		DA9924F39919F406543D22EA /* Pods_NintendoPriceTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NintendoPriceTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E23EEBE96539E633723BCE8C /* Pods_NintendoPriceTracker_NintendoPriceTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NintendoPriceTracker_NintendoPriceTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D53826946FF0E73A672872 /* Pods_NintendoPriceTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B0D6C858A74651F1156162 /* Pods_NintendoPriceTrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82526BF269889A61844F3027 /* Pods_NintendoPriceTracker_NintendoPriceTrackerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +106,8 @@
 				00B2236D255DCC0B00C563E8 /* NintendoPriceTrackerTests */,
 				00B22378255DCC0B00C563E8 /* NintendoPriceTrackerUITests */,
 				00B22355255DCC0A00C563E8 /* Products */,
+				FF4C3AEABBD4258142BB3DBC /* Pods */,
+				0C57BB8D9CCB92E0CF53BAAF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +134,7 @@
 				00FF8A2625670969000CC9F6 /* LoginViewController.swift */,
 				00FF8A2B256709FD000CC9F6 /* LandingScreenViewController.swift */,
 				00FF8A302567159D000CC9F6 /* SignUpViewController.swift */,
+				817D350B2578A5FB000105D2 /* MainScreenTableViewController.swift */,
 			);
 			path = NintendoPriceTracker;
 			sourceTree = "<group>";
@@ -137,6 +157,29 @@
 			path = NintendoPriceTrackerUITests;
 			sourceTree = "<group>";
 		};
+		0C57BB8D9CCB92E0CF53BAAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CF54CE6C59588D3436553A9 /* Pods_NintendoPriceTracker.framework */,
+				E23EEBE96539E633723BCE8C /* Pods_NintendoPriceTracker_NintendoPriceTrackerUITests.framework */,
+				DA9924F39919F406543D22EA /* Pods_NintendoPriceTrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF4C3AEABBD4258142BB3DBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5ABFF9ED9FB9E2B5838E881C /* Pods-NintendoPriceTracker.debug.xcconfig */,
+				B8DDF862BC33770AFB5A18FA /* Pods-NintendoPriceTracker.release.xcconfig */,
+				919A00FA33BB56E9CB4F7757 /* Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.debug.xcconfig */,
+				3F5A8143F05E49F462F5738F /* Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.release.xcconfig */,
+				4DF9E1990834737A59A46ACB /* Pods-NintendoPriceTrackerTests.debug.xcconfig */,
+				5D063A9BC35D3FAEAC08D06D /* Pods-NintendoPriceTrackerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00B2237E255DCC0B00C563E8 /* Build configuration list for PBXNativeTarget "NintendoPriceTracker" */;
 			buildPhases = (
+				8D4F94907E97D9A1C615FD3D /* [CP] Check Pods Manifest.lock */,
 				00B22350255DCC0A00C563E8 /* Sources */,
 				00B22351255DCC0A00C563E8 /* Frameworks */,
 				00B22352255DCC0A00C563E8 /* Resources */,
+				125055C36D9E186E7739CBDF /* [CP] Embed Pods Frameworks */,
+				CD763852ECF08C0275850843 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,6 +207,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00B22381255DCC0B00C563E8 /* Build configuration list for PBXNativeTarget "NintendoPriceTrackerTests" */;
 			buildPhases = (
+				146CB44F487DDF5A2E27246C /* [CP] Check Pods Manifest.lock */,
 				00B22366255DCC0B00C563E8 /* Sources */,
 				00B22367255DCC0B00C563E8 /* Frameworks */,
 				00B22368255DCC0B00C563E8 /* Resources */,
@@ -179,9 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00B22384255DCC0B00C563E8 /* Build configuration list for PBXNativeTarget "NintendoPriceTrackerUITests" */;
 			buildPhases = (
+				4A418D16E57CC7EA183F65E7 /* [CP] Check Pods Manifest.lock */,
 				00B22371255DCC0B00C563E8 /* Sources */,
 				00B22372255DCC0B00C563E8 /* Frameworks */,
 				00B22373255DCC0B00C563E8 /* Resources */,
+				7829389F7DDD7C59B99A8B38 /* [CP] Embed Pods Frameworks */,
+				F0977958AE483842BF33D861 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +312,143 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		125055C36D9E186E7739CBDF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		146CB44F487DDF5A2E27246C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NintendoPriceTrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A418D16E57CC7EA183F65E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7829389F7DDD7C59B99A8B38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D4F94907E97D9A1C615FD3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NintendoPriceTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD763852ECF08C0275850843 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0977958AE483842BF33D861 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		00B22350255DCC0A00C563E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,6 +459,7 @@
 				00B2235C255DCC0A00C563E8 /* ViewController.swift in Sources */,
 				00FF8A2C256709FD000CC9F6 /* LandingScreenViewController.swift in Sources */,
 				00B22358255DCC0A00C563E8 /* AppDelegate.swift in Sources */,
+				817D350C2578A5FB000105D2 /* MainScreenTableViewController.swift in Sources */,
 				00B2235A255DCC0A00C563E8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +633,7 @@
 		};
 		00B2237F255DCC0B00C563E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ABFF9ED9FB9E2B5838E881C /* Pods-NintendoPriceTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -463,6 +652,7 @@
 		};
 		00B22380255DCC0B00C563E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8DDF862BC33770AFB5A18FA /* Pods-NintendoPriceTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -481,6 +671,7 @@
 		};
 		00B22382255DCC0B00C563E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DF9E1990834737A59A46ACB /* Pods-NintendoPriceTrackerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +693,7 @@
 		};
 		00B22383255DCC0B00C563E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D063A9BC35D3FAEAC08D06D /* Pods-NintendoPriceTrackerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -523,6 +715,7 @@
 		};
 		00B22385255DCC0B00C563E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 919A00FA33BB56E9CB4F7757 /* Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -542,6 +735,7 @@
 		};
 		00B22386255DCC0B00C563E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F5A8143F05E49F462F5738F /* Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

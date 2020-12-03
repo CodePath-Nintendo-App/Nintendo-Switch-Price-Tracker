@@ -40,18 +40,18 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nintendo_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="tSa-en-u1A">
                                 <rect key="frame" x="97" y="122" width="220" height="74"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzD-Y7-Jmu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzD-Y7-Jmu">
                                 <rect key="frame" x="49" y="373" width="316" height="62"/>
-                                <color key="backgroundColor" cyan="0.0" magenta="0.0001772865653" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="4fY-7t-QQx"/>
                                     <constraint firstAttribute="width" constant="316" id="cb1-X1-nCy"/>
                                 </constraints>
-                                <state key="normal" title="Login">
+                                <state key="normal" backgroundImage="GoogleSignInButton">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="chS-vc-HmK" kind="presentation" id="NeC-cu-W1z"/>
+                                    <action selector="OnSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w6n-f3-cBp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -76,6 +76,10 @@
                             <constraint firstItem="ueh-iY-LLE" firstAttribute="top" secondItem="nzD-Y7-Jmu" secondAttribute="bottom" constant="54" id="ztH-UM-vBJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signInButton" destination="nzD-Y7-Jmu" id="E63-w1-8Bg"/>
+                        <segue destination="0dL-mF-sL1" kind="presentation" identifier="successLoginSgegue" id="F50-bU-1pB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -321,8 +325,7 @@
         <!--Main Scene-->
         <scene sceneID="a76-HS-9Nv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Gv-5X-t7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tableViewController title="Main Scene" id="axd-38-9XW" customClass="MainPageTableViewController" customModule="NintendoPriceTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainScreen" title="Main Scene" id="axd-38-9XW" customClass="MainScreenTableViewController" customModule="NintendoPriceTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qyF-cl-IIa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -344,6 +347,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="vV2-U5-0Gs"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Gv-5X-t7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73.913043478260875" y="2468.9732142857142"/>
         </scene>
@@ -412,10 +416,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3My-yR-aC9"/>
-        <segue reference="7D1-MO-9ut"/>
+        <segue reference="F50-bU-1pB"/>
+        <segue reference="bQe-Z8-ot2"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="GoogleSignInButton" width="382" height="92"/>
         <image name="Login_Pikmin_Pic" width="468" height="468"/>
         <image name="Nintendo_Logo" width="1170" height="290"/>
         <image name="PromptScreen_Pikmin_Pic" width="1100" height="308"/>
