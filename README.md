@@ -127,3 +127,16 @@ get|	/youtube.videos.rate/	|get videos likes and dislikes|
 |get|	/stats/waitlist/price/|	Get statistical info about Waitlist notification price limits for specific game|
 |get |	game/plain/	|Identification by title tries to match provided title against our database. Should provide reasonable results|
 |get|	/game/prices/	|Get all current prices for one or more selected games. Use region and country to get more accurate results|
+
+## User Stories
+
+The following **required** functionality is completed:
+
+- [x] User can login using their Google Account
+- [ ] User can view the list of the trending games
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='http://g.recordit.co/mLeIUlYNBV.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
