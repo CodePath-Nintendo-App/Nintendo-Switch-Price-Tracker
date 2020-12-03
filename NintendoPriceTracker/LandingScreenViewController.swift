@@ -39,7 +39,7 @@ class LandingScreenViewController: UIViewController, GIDSignInDelegate {
         {
             
             print(UserDefaults.standard.string(forKey: "firstName") ?? "")
-            performSegue(withIdentifier: "successLoginSgegue", sender: self)
+            performSegue(withIdentifier: "mainScreenSegue", sender: self)
         }
         
     }

@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_NintendoPriceTracker_NintendoPriceTrackerUITests : NSObject
+@end
+@implementation PodsDummy_Pods_NintendoPriceTracker_NintendoPriceTrackerUITests
+@end

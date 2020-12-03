@@ -1,0 +1,6 @@
+framework module Pods_NintendoPriceTracker_NintendoPriceTrackerUITests {
+  umbrella header "Pods-NintendoPriceTracker-NintendoPriceTrackerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
