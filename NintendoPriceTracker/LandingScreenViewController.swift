@@ -26,19 +26,11 @@ class LandingScreenViewController: UIViewController, GIDSignInDelegate {
         let givenName = user.profile.givenName
         let familyName = user.profile.familyName
         let email = user.profile.email
-        // ...
-        print(userId ?? "null")
-        print(idToken ?? "null")
-        print(fullName ?? "null")
-        print(givenName ?? "null")
-        print(familyName ?? "null")
-        print(email ?? "null")
+        
         UserDefaults.standard.set(true, forKey: "signedIn")
         UserDefaults.standard.set(givenName, forKey: "firstName")
         if(UserDefaults.standard.bool(forKey: "signedIn"))
         {
-            
-            print(UserDefaults.standard.string(forKey: "firstName") ?? "")
             performSegue(withIdentifier: "mainScreenSegue", sender: self)
         }
         
@@ -53,6 +45,7 @@ class LandingScreenViewController: UIViewController, GIDSignInDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Do any additional setup after loading the view.
         GIDSignIn.sharedInstance().delegate = self

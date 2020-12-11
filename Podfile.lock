@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (5.2.2)
+  - AlamofireImage (4.1.0):
+    - Alamofire (~> 5.1)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -33,12 +36,16 @@ PODS:
     - GTMSessionFetcher/Core (= 1.5.0)
 
 DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
   - AppAuth (~> 1.4.0)
   - Google
   - GoogleSignIn
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - AlamofireImage
     - AppAuth
     - FirebaseAnalytics
     - FirebaseCore
@@ -50,6 +57,8 @@ SPEC REPOS:
     - GTMSessionFetcher
 
 SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
@@ -60,6 +69,6 @@ SPEC CHECKSUMS:
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
 
-PODFILE CHECKSUM: 7a76992ff28f33372fb9fd80d3aeda051e0ab374
+PODFILE CHECKSUM: ef9b4eec8e1648265b9e642cecf5f485bfaa1eab
 
 COCOAPODS: 1.9.3

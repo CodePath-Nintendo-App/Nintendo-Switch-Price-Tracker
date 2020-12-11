@@ -8,6 +8,8 @@ target 'NintendoPriceTracker' do
   # Pods for NintendoPriceTracker
   pod 'GoogleSignIn'
   pod 'Google'
+  pod 'Alamofire'
+  pod 'AlamofireImage'
   pod 'AppAuth','~> 1.4.0'
 
   target 'NintendoPriceTrackerTests' do
