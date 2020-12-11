@@ -133,10 +133,10 @@ get|	/youtube.videos.rate/	|get videos likes and dislikes|
 The following **required** functionality is completed:
 
 - [x] User can login using their Google Account
-- [ ] User can view the list of the trending games
+- [x] User can view the list of the trending games
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/mLeIUlYNBV.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/pZyfc23q7Y.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />

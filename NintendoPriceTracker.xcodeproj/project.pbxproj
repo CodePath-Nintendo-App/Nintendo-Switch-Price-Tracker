@@ -17,6 +17,11 @@
 		00FD6749257988090088E2EA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FD6748257988090088E2EA /* MainViewController.swift */; };
 		00FF8A2C256709FD000CC9F6 /* LandingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF8A2B256709FD000CC9F6 /* LandingScreenViewController.swift */; };
 		52B0D6C858A74651F1156162 /* Pods_NintendoPriceTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9924F39919F406543D22EA /* Pods_NintendoPriceTrackerTests.framework */; };
+		816A36F62582A9360016F0F9 /* GameDealsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A36F42582A9360016F0F9 /* GameDealsCollectionViewCell.swift */; };
+		816A36F72582A9360016F0F9 /* GameDealsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 816A36F52582A9360016F0F9 /* GameDealsCollectionViewCell.xib */; };
+		816A36FD2582AC220016F0F9 /* GameDealsCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A36FB2582AC220016F0F9 /* GameDealsCollectionTableViewCell.swift */; };
+		816A36FE2582AC220016F0F9 /* GameDealsCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 816A36FC2582AC220016F0F9 /* GameDealsCollectionTableViewCell.xib */; };
+		81EBF0322583430A00996EAA /* GameDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EBF0312583430A00996EAA /* GameDetailsViewController.swift */; };
 		82526BF269889A61844F3027 /* Pods_NintendoPriceTracker_NintendoPriceTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23EEBE96539E633723BCE8C /* Pods_NintendoPriceTracker_NintendoPriceTrackerUITests.framework */; };
 		A0D53826946FF0E73A672872 /* Pods_NintendoPriceTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF54CE6C59588D3436553A9 /* Pods_NintendoPriceTracker.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +64,11 @@
 		5ABFF9ED9FB9E2B5838E881C /* Pods-NintendoPriceTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTracker.debug.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		5D063A9BC35D3FAEAC08D06D /* Pods-NintendoPriceTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTrackerTests/Pods-NintendoPriceTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		7CF54CE6C59588D3436553A9 /* Pods_NintendoPriceTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NintendoPriceTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		816A36F42582A9360016F0F9 /* GameDealsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDealsCollectionViewCell.swift; sourceTree = "<group>"; };
+		816A36F52582A9360016F0F9 /* GameDealsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDealsCollectionViewCell.xib; sourceTree = "<group>"; };
+		816A36FB2582AC220016F0F9 /* GameDealsCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDealsCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		816A36FC2582AC220016F0F9 /* GameDealsCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDealsCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		81EBF0312583430A00996EAA /* GameDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsViewController.swift; sourceTree = "<group>"; };
 		919A00FA33BB56E9CB4F7757 /* Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests/Pods-NintendoPriceTracker-NintendoPriceTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8DDF862BC33770AFB5A18FA /* Pods-NintendoPriceTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NintendoPriceTracker.release.xcconfig"; path = "Target Support Files/Pods-NintendoPriceTracker/Pods-NintendoPriceTracker.release.xcconfig"; sourceTree = "<group>"; };
 		DA9924F39919F406543D22EA /* Pods_NintendoPriceTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NintendoPriceTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,11 +131,16 @@
 				00B22357255DCC0A00C563E8 /* AppDelegate.swift */,
 				00B22359255DCC0A00C563E8 /* SceneDelegate.swift */,
 				00B2235D255DCC0A00C563E8 /* Main.storyboard */,
+				81EBF0312583430A00996EAA /* GameDetailsViewController.swift */,
 				00B22360255DCC0B00C563E8 /* Assets.xcassets */,
 				00B22362255DCC0B00C563E8 /* LaunchScreen.storyboard */,
 				00B22365255DCC0B00C563E8 /* Info.plist */,
 				00FF8A2B256709FD000CC9F6 /* LandingScreenViewController.swift */,
 				00FD6748257988090088E2EA /* MainViewController.swift */,
+				816A36F42582A9360016F0F9 /* GameDealsCollectionViewCell.swift */,
+				816A36FB2582AC220016F0F9 /* GameDealsCollectionTableViewCell.swift */,
+				816A36FC2582AC220016F0F9 /* GameDealsCollectionTableViewCell.xib */,
+				816A36F52582A9360016F0F9 /* GameDealsCollectionViewCell.xib */,
 			);
 			path = NintendoPriceTracker;
 			sourceTree = "<group>";
@@ -281,8 +296,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				816A36FE2582AC220016F0F9 /* GameDealsCollectionTableViewCell.xib in Resources */,
 				00B22364255DCC0B00C563E8 /* LaunchScreen.storyboard in Resources */,
 				00B22361255DCC0B00C563E8 /* Assets.xcassets in Resources */,
+				816A36F72582A9360016F0F9 /* GameDealsCollectionViewCell.xib in Resources */,
 				00B2235F255DCC0A00C563E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,9 +463,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				00FF8A2C256709FD000CC9F6 /* LandingScreenViewController.swift in Sources */,
+				81EBF0322583430A00996EAA /* GameDetailsViewController.swift in Sources */,
 				00B22358255DCC0A00C563E8 /* AppDelegate.swift in Sources */,
 				00B2235A255DCC0A00C563E8 /* SceneDelegate.swift in Sources */,
 				00FD6749257988090088E2EA /* MainViewController.swift in Sources */,
+				816A36F62582A9360016F0F9 /* GameDealsCollectionViewCell.swift in Sources */,
+				816A36FD2582AC220016F0F9 /* GameDealsCollectionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
