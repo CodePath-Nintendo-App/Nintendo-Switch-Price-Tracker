@@ -134,6 +134,7 @@
                                         <size key="customSize" width="201" height="203"/>
                                         <connections>
                                             <outlet property="posterImage" destination="Xir-Mm-RAX" id="bdE-0p-drW"/>
+                                            <segue destination="KO9-NT-B6Q" kind="show" identifier="FavoriteDetailsSegue" id="ru9-fz-6yf"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -379,7 +380,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GOz-Xq-hBb"/>
+        <segue reference="ru9-fz-6yf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Bell" width="256" height="256"/>

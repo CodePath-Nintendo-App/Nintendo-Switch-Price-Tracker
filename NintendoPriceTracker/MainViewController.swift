@@ -120,6 +120,8 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    
+    
     var games = [[String:Any]]()
     var gamesWithPrices = [Game]()
     var chosenGameIndex = Int()
@@ -326,6 +328,22 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             let gameDetailsViewController = segue.destination as! GameDetailsViewController
             gameDetailsViewController.games.append(gameFromSearch[0])
         }
+        else if(segue.identifier == "FavoriteDetailsSegue")
+        {
+            //Find the selected movie
+                    let cell = sender as! UICollectionViewCell
+                    let indexPath = collectionView.indexPath(for: cell)!
+                    let game = posts[indexPath.item]
+            let newGame = Game(id: game["gameID"] as! Int, title: game["title"] as! String, price: game["price"] as! String, discPrice: game["discPrice"] as! String, imageUrlString: game["imageUrl"] as! String)
+            
+            
+                    // Pass the selected object to the new view controller.
+            let gameDetailsViewController = segue.destination as! GameDetailsViewController
+            gameDetailsViewController.games.append(newGame)
+           
+                    
+                    collectionView.deselectItem(at: indexPath, animated: true)
+        }
         
         
     }
@@ -338,7 +356,7 @@ struct Game {
     let id: Int
     let title: String
     let price: String
-    let discPrice: String
+    var discPrice: String
     let imageUrlString: String
     init(id: Int, title: String, price: String, discPrice: String, imageUrlString: String)
     {

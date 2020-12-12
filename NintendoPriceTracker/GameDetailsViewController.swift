@@ -26,27 +26,47 @@ class GameDetailsViewController: UIViewController {
         UIApplication.shared.open(URL(string: humbleUrl)!, options: [:], completionHandler: nil)
     }
     
-    @IBAction func wishListButtton(_ sender: Any) {
-        
-        let game = PFObject(className: "Games")
-        game["gameID"] = games[0].id
-        game["title"] = games[0].title
-        game["imageUrl"] = games[0].imageUrlString
-        game["price"] = games[0].price
-        game["discPrice"] = games[0].discPrice
-        let imageData = self.posterImageView.image!.pngData()
-        let file = PFFileObject(data: imageData!)
-        game["image"] = file
-        game["userID"] = PFUser.current()!
-        game.saveInBackground { (success, error) in
-            if(success){
-                print("saved")
+    @IBAction func wishListButtton(_ sender: UIButton) {
+        if sender.currentImage == UIImage(named: "Heart")
+        {
+            self.favoriteButton.setImage(UIImage(named: "heart_red"), for:  UIControl.State.normal)
+            let game = PFObject(className: "Games")
+            game["gameID"] = games[0].id
+            game["title"] = games[0].title
+            game["imageUrl"] = games[0].imageUrlString
+            game["price"] = games[0].price
+            game["discPrice"] = games[0].discPrice
+            let imageData = self.posterImageView.image!.pngData()
+            let file = PFFileObject(data: imageData!)
+            game["image"] = file
+            game["userID"] = PFUser.current()!
+            game.saveInBackground { (success, error) in
+                if(success){
+                    
+                }
+                else{
+                    print("error!")
+                }
+                
             }
-            else{
-                print("error!")
-            }
-            
         }
+        else if (sender.currentImage == UIImage(named: "heart_red"))
+        {
+            let query = PFQuery(className: "Games")
+            query.whereKey("title", equalTo: games[0].title)
+            
+            query.findObjectsInBackground { (objects, error) in
+                    if error == nil,
+                        let objects = objects {
+                        for object in objects {
+                            object.deleteInBackground()
+                        }
+                        self.favoriteButton.setImage(UIImage(named: "Heart"), for:  UIControl.State.normal)
+                    }
+            }
+        }
+        
+        
         
     }
     
