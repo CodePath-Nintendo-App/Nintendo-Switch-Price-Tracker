@@ -41,15 +41,18 @@ class GameDetailsViewController: UIViewController {
         self.gameTitleLabel.sizeToFit()
         self.bannerImageView.af.setImage(withURL: URL(string: games[0].imageUrlString)!)
         
-        print(games[0].title)
         
-        let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890+-=().!_")
-        let term = games[0].title.filter{okayChars.contains($0)}
-        print(term)
-        let urlCleanString = term.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
-        print(urlCleanString)
+        let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890 +-=().!_")
         
-        print(term)
+        let term = games[0].title.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+        
+        // remove unbreakable space
+        let removedSpecialSpace = term.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+
+        
+        let urlCleanString = removedSpecialSpace.filter{okayChars.contains($0)}
+        
+        
         let url = URL(string: "https://www.googleapis.com/youtube/v3/search?channelId=UCKy1dAqELo0zrOtPkf0eTMw&q=\(urlCleanString)&key=AIzaSyChGOHUTWczNJ6TqxnZvrZffKFczMS9-58")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
