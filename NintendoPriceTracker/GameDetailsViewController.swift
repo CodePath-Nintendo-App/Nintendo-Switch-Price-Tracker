@@ -23,12 +23,16 @@ class GameDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(games[0].title)
+//        print(games[0].title)
         self.gameTitleLabel.text = games[0].title
         self.gameTitleLabel.sizeToFit()
         self.bannerImageView.af.setImage(withURL: URL(string: games[0].imageUrlString)!)
         
-        let url = URL(string: "https://www.googleapis.com/youtube/v3/search?channelId=UCKy1dAqELo0zrOtPkf0eTMw&q=cyberpunk&key=AIzaSyChGOHUTWczNJ6TqxnZvrZffKFczMS9-58")!
+        let okayChars = Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890+-=().!_")
+        let term = games[0].title.filter{okayChars.contains($0)}
+        
+        print(term)
+        let url = URL(string: "https://www.googleapis.com/youtube/v3/search?channelId=UCKy1dAqELo0zrOtPkf0eTMw&q="+term+"&key=AIzaSyChGOHUTWczNJ6TqxnZvrZffKFczMS9-58")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
