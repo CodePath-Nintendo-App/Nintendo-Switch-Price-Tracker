@@ -29,6 +29,7 @@ class LandingScreenViewController: UIViewController, GIDSignInDelegate {
         
         UserDefaults.standard.set(true, forKey: "signedIn")
         UserDefaults.standard.set(givenName, forKey: "firstName")
+        
         if(UserDefaults.standard.bool(forKey: "signedIn"))
         {
             performSegue(withIdentifier: "mainScreenSegue", sender: self)
