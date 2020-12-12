@@ -280,6 +280,7 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         {
             let gameDetailsViewController = segue.destination as! GameDetailsViewController
             gameDetailsViewController.games.append(gamesWithPrices[chosenGameIndex])
+            gameDetailsViewController.currentPrice = gamesWithPrices[chosenGameIndex].discPrice
         }
         else if(segue.identifier == "signOutSegue")
         {

@@ -17,10 +17,25 @@ class GameDetailsViewController: UIViewController {
     var games = [Game]()
     var ytDetails = [[String:Any]]()
     var videoId = String()
+    var humbleUrl = "https://humblebundle.com"
+    var allTimeLowPrice = "N/A"
+    var currentPrice = "N/A"
+    var plainsText = ""
     
     @IBAction func purchaseButton(_ sender: Any) {
         print("test---------------------------")
-        let url = URL(string: "https://api.isthereanydeal.com/v02/search/search/?key=94869c8af402b8b7eb925d986c9337d8b82d5d47&q=assassins%20creed%20odyssey&limit=20&strict=0")!
+        
+        let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890 +-=().!_")
+        
+        let term = games[0].title.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+        
+        // remove unbreakable space
+        let removedSpecialSpace = term.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+
+        
+        let urlCleanString = removedSpecialSpace.filter{okayChars.contains($0)}
+        
+        let url = URL(string: "https://api.isthereanydeal.com/v02/search/search/?key=94869c8af402b8b7eb925d986c9337d8b82d5d47&q=\(urlCleanString)&limit=20&strict=0")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
@@ -35,9 +50,10 @@ class GameDetailsViewController: UIViewController {
                         print(dataDictionary)
                         let list = dataDictionary["data"] as! [String:Any]
                         let results =  list["results"] as! [[String:Any]]
-                        let game = results[0]
-//                        print(game["id"] as! [String:Any])
-
+                        //let game = results[0]
+                        let gameDealId = results[0]["id"] as! Int
+                        
+                        
                     }
                 }
                 task.resume()
@@ -62,6 +78,9 @@ class GameDetailsViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     
     @IBOutlet weak var gameTitleLabel: UILabel!
+    @IBOutlet weak var priceNowLable: UILabel!
+    @IBOutlet weak var priceLowLable: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +89,81 @@ class GameDetailsViewController: UIViewController {
         self.gameTitleLabel.sizeToFit()
         self.bannerImageView.af.setImage(withURL: URL(string: games[0].imageUrlString)!)
         
+        self.priceNowLable.text = "Now: \(self.currentPrice)"
+        self.priceLowLable.text = "Lowest: \(self.allTimeLowPrice)"
+        
+        
+        let plainsCharSet =  Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890+-=().!_")
+        
+        let urlPlains = games[0].title.filter{plainsCharSet.contains($0)}
+        
+        
+        let urlP = URL(string: "https://api.isthereanydeal.com/v01/game/prices/?key=94869c8af402b8b7eb925d986c9337d8b82d5d47&plains=\(urlPlains)&region=us")!
+        let requestP = URLRequest(url: urlP, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessionP = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        
+        let taskP = sessionP.dataTask(with: requestP) { (data, response, error) in
+                    // This will run when the network request returns
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else if let data = data {
+                        let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                        
+                        //print dictionary
+                        //print(dataDictionary)
+                        let dataList = dataDictionary["data"] as! [String:Any]
+                        var shopFound = false
+                        
+                        for dL in dataList
+                        {
+                            
+                            let listOfDeals = dL.value as! [String:Any]
+                            
+                            for lOD in listOfDeals
+                            {
+                                
+                                if(lOD.key == "list")
+                                {
+                                    let arrayListDeals = listOfDeals[lOD.key] as! [Any]
+                                    if (arrayListDeals.isEmpty != true){
+                                        //var counter = 0
+                                        
+                                        let dealList = listOfDeals[lOD.key] as! [NSObject]
+                                        let storeDetails = dealList[0] as! [String:Any]
+                                        let shop = storeDetails["shop"] as! [String:Any]
+                                        if(shop["name"] as! String == "Humble Store")
+                                        {
+                                            self.humbleUrl = storeDetails["url"] as! String
+                                            shopFound = true
+                                            self.plainsText = dL.key
+                                            break
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }
+                            if(shopFound)
+                            {
+                                break
+                            }
+                            
+                        }
+                        print(self.humbleUrl)
+                        print(self.plainsText)
+
+                        self.loadPrices()
+                    }
+                }
+                taskP.resume()
+        
+        
+        
+        
+        
+        
+        print("test---------------------------")
         
         let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890 +-=().!_")
         
@@ -81,7 +175,7 @@ class GameDetailsViewController: UIViewController {
         
         let urlCleanString = removedSpecialSpace.filter{okayChars.contains($0)}
         
-        
+       
         let url = URL(string: "https://www.googleapis.com/youtube/v3/search?channelId=UCKy1dAqELo0zrOtPkf0eTMw&q=\(urlCleanString)&key=AIzaSyChGOHUTWczNJ6TqxnZvrZffKFczMS9-58")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -102,9 +196,6 @@ class GameDetailsViewController: UIViewController {
 //                    }
 //                }
 //                task.resume()
-        
-        
-        
             
                 let urlE = URL(string: "https://www.giantbomb.com/api/search/?api_key=9e316f22c617c9f2c3f0a39b1656f56545644a5e&format=json&limit=1&query=\(urlCleanString)&resources=game")!
                 let requestE = URLRequest(url: urlE, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -128,7 +219,53 @@ class GameDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    func loadPrices()
+    {
+        if(self.plainsText != "")
+        {
+            let urlAT = URL(string: "https://api.isthereanydeal.com/v01/game/overview/?key=94869c8af402b8b7eb925d986c9337d8b82d5d47&plains=\(self.plainsText)&region=us")!
+            let requestAT = URLRequest(url: urlAT, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+            let sessionAT = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+            
+            let taskAT = sessionAT.dataTask(with: requestAT) { (data, response, error) in
+                        // This will run when the network request returns
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else if let data = data {
+                            let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                            
+                            //print dictionary
+                            
+                            let list = dataDictionary["data"] as! [String:Any]
+                            let priceData = list[self.plainsText] as! [String:Any]
+                            let currentPriceD =  priceData["price"] as! [String:Any]
+                            let lowPriceD =  priceData["lowest"] as! [String:Any]
+                            //let game = results[0]
+                            
+                            if(self.currentPrice == "N/A")
+                            {
+                                
+                                if(currentPriceD["price_formatted"] as! String != "")
+                                {
+                                    self.currentPrice = currentPriceD["price_formatted"] as! String
+                                }
+                                
+                            }
+                            
+                            if(lowPriceD["price_formatted"] as! String != "N/A")
+                            {
+                                self.allTimeLowPrice = lowPriceD["price_formatted"] as! String
+                            }
+                            
+                            
+                            self.priceNowLable.text = "Now: " + self.currentPrice
+                            self.priceLowLable.text = "Lowest: " + self.allTimeLowPrice
+                            
+                        }
+                    }
+                    taskAT.resume()
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -138,6 +275,13 @@ class GameDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+    struct GameDeal
+    {
+        var id: Int
+        var priceNew: Float
+        var allTimePrice: Float
+        var storeUrl: String
+        
+    }
 
 }
