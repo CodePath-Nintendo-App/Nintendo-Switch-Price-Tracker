@@ -7,6 +7,7 @@
 import youtube_ios_player_helper
 import UIKit
 import AlamofireImage
+import Parse
 
 class GameDetailsViewController: UIViewController {
     
@@ -21,6 +22,11 @@ class GameDetailsViewController: UIViewController {
     
     @IBAction func wishListButtton(_ sender: Any) {
         print("clicked wish")
+        let game = PFObject(className: "games")
+        game["title"] = gameTitleLabel.text
+        let imageData = posterImageView.image!.pngData()
+        let file = PFFileObject(data: imageData!)
+        game["image"] = file
     }
     
     @IBAction func notifyButton(_ sender: Any) {
