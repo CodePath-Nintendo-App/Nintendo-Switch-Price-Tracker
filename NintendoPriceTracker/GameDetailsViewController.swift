@@ -28,11 +28,12 @@ class GameDetailsViewController: UIViewController {
         self.gameTitleLabel.sizeToFit()
         self.bannerImageView.af.setImage(withURL: URL(string: games[0].imageUrlString)!)
         
-        let okayChars = Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890+-=().!_")
-        let term = games[0].title.filter{okayChars.contains($0)}
+        let okayChars = Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890+-=().!_ ")
+                let term = games[0].title.filter{okayChars.contains($0)}
+                let urlCleanString = term.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
         
         print(term)
-        let url = URL(string: "https://www.googleapis.com/youtube/v3/search?channelId=UCKy1dAqELo0zrOtPkf0eTMw&q="+term+"&key=AIzaSyChGOHUTWczNJ6TqxnZvrZffKFczMS9-58")!
+        let url = URL(string: "https://www.googleapis.com/youtube/v3/search?channelId=UCKy1dAqELo0zrOtPkf0eTMw&q="+urlCleanString+"&key=AIzaSyChGOHUTWczNJ6TqxnZvrZffKFczMS9-58")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
@@ -43,7 +44,7 @@ class GameDetailsViewController: UIViewController {
                     } else if let data = data {
                         let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                         print("test-------------------------------------")
-//                        print(dataDictionary["items"] as! [[String:Any]] )
+                        print(dataDictionary["items"] as! [[String:Any]] )
                         let videoDetails = dataDictionary["items"] as! [[String:Any]]
                         let vidObj = videoDetails[0]["id"] as! [String:Any]
                         let videoId = vidObj["videoId"] as! String
