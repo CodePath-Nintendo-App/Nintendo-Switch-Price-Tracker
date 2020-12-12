@@ -11,6 +11,8 @@ target 'NintendoPriceTracker' do
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'AppAuth','~> 1.4.0'
+ pod 'youtube-ios-player-helper'
+
 
   target 'NintendoPriceTrackerTests' do
     inherit! :search_paths
