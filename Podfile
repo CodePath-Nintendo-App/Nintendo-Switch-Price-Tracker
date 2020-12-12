@@ -6,6 +6,7 @@ target 'NintendoPriceTracker' do
   use_frameworks!
 
   # Pods for NintendoPriceTracker
+  pod 'Parse'
   pod 'GoogleSignIn'
   pod 'Google'
   pod 'Alamofire'

@@ -7,6 +7,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
+  - Bolts/Tasks (1.9.1)
   - FirebaseAnalytics (3.9.0):
     - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
@@ -34,6 +35,10 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
+  - Parse (1.19.0):
+    - Parse/Core (= 1.19.0)
+  - Parse/Core (1.19.0):
+    - Bolts/Tasks (= 1.9.1)
   - youtube-ios-player-helper (1.0.2)
 
 DEPENDENCIES:
@@ -42,6 +47,7 @@ DEPENDENCIES:
   - AppAuth (~> 1.4.0)
   - Google
   - GoogleSignIn
+  - Parse
   - youtube-ios-player-helper
 
 SPEC REPOS:
@@ -49,6 +55,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - AppAuth
+    - Bolts
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseInstanceID
@@ -57,12 +64,14 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GTMAppAuth
     - GTMSessionFetcher
+    - Parse
     - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
@@ -71,8 +80,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 1350d40e86a76f7863928d63bcb0b89c84c521c5
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  Parse: 0fb5c7cc7ee5900f2434e24607d0496155b8d04f
   youtube-ios-player-helper: 40b96e52c22445f0fdc43731cefa32c67075ff81
 
-PODFILE CHECKSUM: a686b856891b4aebef50ba72876f38d65f043896
+PODFILE CHECKSUM: bbbdc27a83f29df957a92247c2ff33ce3aa435ad
 
 COCOAPODS: 1.9.3

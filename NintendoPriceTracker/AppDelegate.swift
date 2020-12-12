@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "1048222401636-62n0ug306fvgrqiq61uc9glm7r57l0oa.apps.googleusercontent.com"
+        
+        //parse
+        let parseConfig = ParseClientConfiguration {
+                $0.applicationId = "ZMcIw3N2QtSHIb8rIB9WRMBSYPoMOKCTvBnMeqrO" // <- UPDATE
+                $0.clientKey = "CI4eavFgphIVwy7abqQT1fcYgaOv1HvfkseuuFC2" // <- UPDATE
+                $0.server = "https://parseapi.back4app.com"
+        }
+        Parse.initialize(with: parseConfig)
         
         
         return true
