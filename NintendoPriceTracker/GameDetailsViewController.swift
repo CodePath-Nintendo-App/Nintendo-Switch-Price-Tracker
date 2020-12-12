@@ -9,6 +9,8 @@ import UIKit
 import AlamofireImage
 import Parse
 
+
+
 class GameDetailsViewController: UIViewController {
     
     
@@ -17,7 +19,28 @@ class GameDetailsViewController: UIViewController {
     var videoId = String()
     
     @IBAction func purchaseButton(_ sender: Any) {
-        print("clicked price")
+        print("test---------------------------")
+        let url = URL(string: "https://api.isthereanydeal.com/v02/search/search/?key=94869c8af402b8b7eb925d986c9337d8b82d5d47&q=assassins%20creed%20odyssey&limit=20&strict=0")!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+                    // This will run when the network request returns
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else if let data = data {
+                        let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                        
+                        //print dictionary
+                        print(dataDictionary)
+                        let list = dataDictionary["data"] as! [String:Any]
+                        let results =  list["results"] as! [[String:Any]]
+                        let game = results[0]
+//                        print(game["id"] as! [String:Any])
+
+                    }
+                }
+                task.resume()
     }
     
     @IBAction func wishListButtton(_ sender: Any) {
@@ -63,22 +86,22 @@ class GameDetailsViewController: UIViewController {
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
-        let task = session.dataTask(with: request) { (data, response, error) in
-                    // This will run when the network request returns
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else if let data = data {
-                        let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                        print("test-------------------------------------")
-//                        print(dataDictionary["items"] as! [[String:Any]] )
-                        let videoDetails = dataDictionary["items"] as! [[String:Any]]
-                        
-                        let vidObj = videoDetails[0]["id"] as! [String:Any]
-                        let videoId = vidObj["videoId"] as! String
-                        self.playerView.load(withVideoId: videoId, playerVars:["playsinline":1])
-                    }
-                }
-                task.resume()
+//        let task = session.dataTask(with: request) { (data, response, error) in
+//                    // This will run when the network request returns
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                    } else if let data = data {
+//                        let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//                        print("test-------------------------------------")
+////                        print(dataDictionary["items"] as! [[String:Any]] )
+//                        let videoDetails = dataDictionary["items"] as! [[String:Any]]
+//
+//                        let vidObj = videoDetails[0]["id"] as! [String:Any]
+//                        let videoId = vidObj["videoId"] as! String
+//                        self.playerView.load(withVideoId: videoId, playerVars:["playsinline":1])
+//                    }
+//                }
+//                task.resume()
         
         
         
@@ -100,7 +123,7 @@ class GameDetailsViewController: UIViewController {
                    }
                 }
                 task2.resume()
-//        playerView.load(withVideoId: "j0mg7GEIpio", playerVars:["playsinline":1])
+        playerView.load(withVideoId: "j0mg7GEIpio", playerVars:["playsinline":1])
         
         // Do any additional setup after loading the view.
     }
