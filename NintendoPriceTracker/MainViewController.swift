@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import AlamofireImage
 
 class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, GameDealsCollectionTableViewCellDelegate {
     
@@ -19,6 +20,95 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         //self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func onEnterTriggered(_ sender: Any) {
+        let textString = self.searchBar.text! as String
+        
+        if(textString != "")
+        {
+            let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890 +-=().!_")
+            
+            let term = textString.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            // remove unbreakable space
+            let removedSpecialSpace = term.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+
+            
+            let urlCleanString = removedSpecialSpace.filter{okayChars.contains($0)}
+            
+            let urlE = URL(string: "https://www.giantbomb.com/api/search/?api_key=9e316f22c617c9f2c3f0a39b1656f56545644a5e&format=json&limit=20&query=\(urlCleanString)&resources=game")!
+            let requestE = URLRequest(url: urlE, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+            let sessionE = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+            let task2 = sessionE.dataTask(with: requestE) { (data, response, error) in
+               // This will run when the network request returns
+               if let error = error {
+                  print(error.localizedDescription)
+               } else if let data = data {
+                  let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let gameDetails = dataDictionary["results"] as! [[String:Any]]
+                if(gameDetails.isEmpty == false)
+                {
+                    var indexOfSwitch = -1
+                    var counterLoop = 0
+                    for gD in gameDetails
+                    {
+                        let gDPlatforms = gD["platforms"]  as! [[String:Any]]
+                        
+                        
+                        for platform in gDPlatforms
+                        {
+                            if(platform["name"] as! String == "Nintendo Switch")
+                            {
+                                indexOfSwitch = counterLoop
+                                break
+                            }
+                        }
+                        
+                        if(indexOfSwitch != -1)
+                        {
+                            break
+                        }
+                        counterLoop = counterLoop + 1
+                    }
+                    
+                    if(indexOfSwitch != -1)
+                    {
+                        let  imageJSON  = gameDetails[indexOfSwitch]["image"] as! [String:Any]
+                        
+                        let newGame = Game(id: 0, title: gameDetails[indexOfSwitch]["name"] as! String, price: "nil", discPrice: "nil", imageUrlString: imageJSON["screen_large_url"] as! String)
+                        self.gameFromSearch.removeAll()
+                        self.gameFromSearch.append(newGame)
+                        self.performSegue(withIdentifier: "GameSearchSegue", sender: self)
+                    }
+                    else{
+                        let alert = UIAlertController(title: "No Results", message: "It's recommended to seacrh for the official game name", preferredStyle: .alert)
+
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
+                        self.present(alert, animated: true)
+                    }
+                    
+                    
+                }
+                else{
+                    let alert = UIAlertController(title: "No Results", message: "It's recommended to seacrh for the official game name", preferredStyle: .alert)
+
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
+                    self.present(alert, animated: true)
+                }
+                
+                
+               }
+            }
+            task2.resume()
+        }
+        
+        
+        
+        self.searchBar.text = ""
+    }
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,6 +119,7 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     var games = [[String:Any]]()
     var gamesWithPrices = [Game]()
     var chosenGameIndex = Int()
+    var gameFromSearch = [Game]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +166,22 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
            }
         }
         
-        print("hello")
+        //Looks for single or multiple taps.
+             let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+            //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+            tap.cancelsTouchesInView = false
+
+            view.addGestureRecognizer(tap)
+        
         task.resume()
+    }
+    
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func loadGamePrices()
@@ -170,6 +275,7 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if(segue.identifier == "GameDetailsSegue")
         {
             let gameDetailsViewController = segue.destination as! GameDetailsViewController
@@ -178,6 +284,11 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         else if(segue.identifier == "signOutSegue")
         {
             GIDSignIn.sharedInstance()?.signOut()
+        }
+        else if(segue.identifier == "GameSearchSegue")
+        {
+            let gameDetailsViewController = segue.destination as! GameDetailsViewController
+            gameDetailsViewController.games.append(gameFromSearch[0])
         }
         
         

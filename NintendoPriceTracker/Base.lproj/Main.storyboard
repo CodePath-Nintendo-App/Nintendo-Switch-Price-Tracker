@@ -154,6 +154,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onEnterTriggered:" destination="PYi-E3-kml" eventType="primaryActionTriggered" id="3cp-rH-9jI"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OHo-HD-ZUw"/>
@@ -182,11 +185,12 @@
                         <outlet property="searchBar" destination="iwn-Ks-PhV" id="BsO-9A-yyP"/>
                         <outlet property="tableView" destination="JYM-zg-6Jv" id="htZ-cj-p3o"/>
                         <segue destination="KO9-NT-B6Q" kind="show" identifier="GameDetailsSegue" id="Im4-iR-pfT"/>
+                        <segue destination="KO9-NT-B6Q" kind="show" identifier="GameSearchSegue" id="GOz-Xq-hBb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g43-Pc-MLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50.724637681159422" y="1194.6428571428571"/>
+            <point key="canvasLocation" x="-220" y="1058"/>
         </scene>
         <!--Game Details View Controller-->
         <scene sceneID="aN3-nU-XWo">
@@ -321,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SaL-cO-Gie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="747.82608695652175" y="1269.6428571428571"/>
+            <point key="canvasLocation" x="1200" y="1272"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="brX-HT-tiM">
@@ -343,6 +347,9 @@
             <point key="canvasLocation" x="-796" y="1904"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GOz-Xq-hBb"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Bell" width="256" height="256"/>
         <image name="Cart_Icon" width="64" height="64"/>
