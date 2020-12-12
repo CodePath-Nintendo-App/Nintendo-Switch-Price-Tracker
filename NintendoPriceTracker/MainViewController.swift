@@ -8,8 +8,11 @@
 import UIKit
 import GoogleSignIn
 import AlamofireImage
+import Parse
 
-class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, GameDealsCollectionTableViewCellDelegate {
+class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, GameDealsCollectionTableViewCellDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
     
     
     func didPressCell(sender: Int) {
@@ -111,22 +114,26 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     
-    @IBOutlet weak var tableView: UITableView!
+    
 
     @IBOutlet weak var horizontalTableView: UITableView!
     @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var games = [[String:Any]]()
     var gamesWithPrices = [Game]()
     var chosenGameIndex = Int()
     var gameFromSearch = [Game]()
+    var posts = [PFObject]()
+    var screenSize: CGRect!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        
+        //tableView.dataSource = self
+        //tableView.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         searchBar.layer.cornerRadius = 15.0
         searchBar.layer.borderWidth = 2.0
         searchBar.layer.borderColor = UIColor.white.cgColor
@@ -140,7 +147,24 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         horizontalTableView.delegate =  self
         horizontalTableView.separatorStyle = .none
         
+        
         // Do any additional setup after loading the view.
+        
+        
+        screenSize = UIScreen.main.bounds
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: screenSize.width/2, height: screenSize.height/3)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+                
+        //let width = (screenSize.width - layout.minimumInteritemSpacing * 2) / 2
+        //layout.itemSize = CGSize(width: screenSize.width/3, height: width * 3 / 2)
+        collectionView!.collectionViewLayout = layout
+        
+        
+        
     
         let url = URL(string: "https://ec.nintendo.com/api/US/en/search/sales?count=30&offset=0")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -157,7 +181,7 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             
             
             
-            self.tableView.reloadData()
+            //self.tableView.reloadData()
             self.loadGamePrices()
             
             // TODO: Store the movies in a property to use elsewhere
@@ -177,6 +201,20 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         task.resume()
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let query = PFQuery(className: "Games")
+        query.includeKeys(["gameID", "price", "discPrice", "imageUrl", "title", "image"])
+        query.findObjectsInBackground { (posts, error) in
+            if posts != nil {
+                self.posts = posts!
+                self.collectionView.reloadData()
+            }
+            
+        }
+    }
     
     //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {
@@ -230,40 +268,36 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(tableView == self.tableView)
-        {
-            return games.count
-        }
         
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(tableView == self.tableView)
-        {
-            let cell = UITableViewCell()
-            print(indexPath.row)
-            let game = games[indexPath.row]
-            let title = game["formal_name"] as! String
-            
-            cell.textLabel!.text = title
-            return cell
-        }
-        else if(tableView == horizontalTableView)
-        {
+        
             let cell = horizontalTableView.dequeueReusableCell(withIdentifier: GameDealsCollectionTableViewCell.identifier, for: indexPath) as! GameDealsCollectionTableViewCell
            
             print(indexPath.row)
             cell.delegate = self
             cell.configure(with: gamesWithPrices)
             return cell
-            
-                
-        }
         
-        return UITableViewCell()
     }
 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCollectionViewCell", for: indexPath) as! FavoritesCollectionViewCell
+        
+        let post = posts[indexPath.row]
+        let posterImage = post["image"] as! PFFileObject
+        let urlString = posterImage.url!
+        let url = URL(string: urlString)!
+        cell.posterImage.af.setImage(withURL: url)
+        
+        return cell
+    }
 
     /*
     // MARK: - Navigation
@@ -284,6 +318,7 @@ class MainViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         }
         else if(segue.identifier == "signOutSegue")
         {
+            PFUser.logOut()
             GIDSignIn.sharedInstance()?.signOut()
         }
         else if(segue.identifier == "GameSearchSegue")

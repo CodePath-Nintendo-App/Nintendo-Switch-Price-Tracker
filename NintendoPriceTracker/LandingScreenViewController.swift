@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import Parse
 
 class LandingScreenViewController: UIViewController, GIDSignInDelegate {
     
@@ -30,10 +31,38 @@ class LandingScreenViewController: UIViewController, GIDSignInDelegate {
         UserDefaults.standard.set(true, forKey: "signedIn")
         UserDefaults.standard.set(givenName, forKey: "firstName")
         
-        if(UserDefaults.standard.bool(forKey: "signedIn"))
-        {
-            performSegue(withIdentifier: "mainScreenSegue", sender: self)
+        PFUser.logInWithUsername(inBackground: email!, password: "google"){ (user, error) in
+            if(user != nil)
+            {
+                if(UserDefaults.standard.bool(forKey: "signedIn"))
+                {
+                    self.performSegue(withIdentifier: "mainScreenSegue", sender: self)
+                }
+            }
+            else{
+                let newUser = PFUser()
+                newUser.username = email
+                newUser.password = "google"
+                newUser.signUpInBackground{(success, error) in
+                    if (success)
+                    {
+                        if(UserDefaults.standard.bool(forKey: "signedIn"))
+                        {
+                            self.performSegue(withIdentifier: "mainScreenSegue", sender: self)
+                        }
+                    }
+                    else
+                    {
+                        print("Error: \(error?.localizedDescription ?? "")")
+                    }
+                    
+                }
+            }
+            
         }
+        
+        
+        
         
     }
     

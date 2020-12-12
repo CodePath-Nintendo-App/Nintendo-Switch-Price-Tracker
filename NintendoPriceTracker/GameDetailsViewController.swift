@@ -23,49 +23,31 @@ class GameDetailsViewController: UIViewController {
     var plainsText = ""
     
     @IBAction func purchaseButton(_ sender: Any) {
-        print("test---------------------------")
-        
-        let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890 +-=().!_")
-        
-        let term = games[0].title.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
-        
-        // remove unbreakable space
-        let removedSpecialSpace = term.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
-
-        
-        let urlCleanString = removedSpecialSpace.filter{okayChars.contains($0)}
-        
-        let url = URL(string: "https://api.isthereanydeal.com/v02/search/search/?key=94869c8af402b8b7eb925d986c9337d8b82d5d47&q=\(urlCleanString)&limit=20&strict=0")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-                    // This will run when the network request returns
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else if let data = data {
-                        let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                        
-                        //print dictionary
-                        print(dataDictionary)
-                        let list = dataDictionary["data"] as! [String:Any]
-                        let results =  list["results"] as! [[String:Any]]
-                        //let game = results[0]
-                        let gameDealId = results[0]["id"] as! Int
-                        
-                        
-                    }
-                }
-                task.resume()
+        UIApplication.shared.open(URL(string: humbleUrl)!, options: [:], completionHandler: nil)
     }
     
     @IBAction func wishListButtton(_ sender: Any) {
-        print("clicked wish")
-        let game = PFObject(className: "games")
-        game["title"] = gameTitleLabel.text
-        let imageData = posterImageView.image!.pngData()
+        
+        let game = PFObject(className: "Games")
+        game["gameID"] = games[0].id
+        game["title"] = games[0].title
+        game["imageUrl"] = games[0].imageUrlString
+        game["price"] = games[0].price
+        game["discPrice"] = games[0].discPrice
+        let imageData = self.posterImageView.image!.pngData()
         let file = PFFileObject(data: imageData!)
         game["image"] = file
+        game["userID"] = PFUser.current()!
+        game.saveInBackground { (success, error) in
+            if(success){
+                print("saved")
+            }
+            else{
+                print("error!")
+            }
+            
+        }
+        
     }
     
     @IBAction func notifyButton(_ sender: Any) {
@@ -80,6 +62,7 @@ class GameDetailsViewController: UIViewController {
     @IBOutlet weak var gameTitleLabel: UILabel!
     @IBOutlet weak var priceNowLable: UILabel!
     @IBOutlet weak var priceLowLable: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -92,6 +75,21 @@ class GameDetailsViewController: UIViewController {
         self.priceNowLable.text = "Now: \(self.currentPrice)"
         self.priceLowLable.text = "Lowest: \(self.allTimeLowPrice)"
         
+        let query = PFQuery(className: "Games")
+
+        query.whereKey("title", equalTo: games[0].title)
+        query.getFirstObjectInBackground { (posts, error) in
+            if posts != nil {
+                self.favoriteButton.setImage(UIImage(named: "heart_red"), for:  UIControl.State.normal)
+                
+            }
+            else{
+                self.favoriteButton.setImage(UIImage(named: "Heart"), for:  UIControl.State.normal)
+            }
+            
+        }
+        
+                
         
         let plainsCharSet =  Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890+-=().!_")
         
