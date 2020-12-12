@@ -15,6 +15,18 @@ class GameDetailsViewController: UIViewController {
     var ytDetails = [[String:Any]]()
     var videoId = String()
     
+    @IBAction func purchaseButton(_ sender: Any) {
+        print("clicked price")
+    }
+    
+    @IBAction func wishListButtton(_ sender: Any) {
+        print("clicked wish")
+    }
+    
+    @IBAction func notifyButton(_ sender: Any) {
+        print("clicked notify")
+    }
+    
     @IBOutlet var playerView: YTPlayerView!
     
     @IBOutlet weak var bannerImageView: UIImageView!
