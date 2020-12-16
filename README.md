@@ -139,4 +139,4 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/pZyfc23q7Y.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://recordit.co/hVE84LsxmD' title='Video Walkthrough' width='' alt='Video Walkthrough' />
