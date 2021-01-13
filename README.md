@@ -1,5 +1,5 @@
 
-# Nintendo game sales tracker (Title WIP)
+# Nintendo Switch Price Tracker
 
 ## Table of Contents
 1. [Overview](#Overview)
